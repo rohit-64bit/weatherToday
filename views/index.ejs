@@ -19,7 +19,7 @@
     <div class="flex">
         <div class="h-screen w-3/5">
             <div class="mx-24 my-16 h-96 flex">
-                <img src="/assets/logo.png" class="h-7 w-7 mx-2" alt="logo"/> 
+                <img src="/assets/logo.png" class="h-7 w-7 mx-2" alt="logo" />
                 <p class="text-white font-medium text-x mx-2">Weather Today</p>
             </div>
             <%if( weather !==null){ %>
@@ -128,6 +128,9 @@
                             <%= error %>
                         </p>
                         <% } %>
+                            <div class="mx-16 text-white text-xs font-light ">
+                                This is only conpatible with desktop for now.
+                            </div>
         </div>
     </div>
 
@@ -137,42 +140,42 @@
         let weather = weatherDescription.innerText;
         console.log(weather);
 
-        switch(weather){
+        switch (weather) {
             case "Haze":
-            document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1619592377715-3f05fca9d9cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')";
-            break;
+                document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1619592377715-3f05fca9d9cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')";
+                break;
             case "Foogy":
-            document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1533757704860-384affeed946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')"
-            break;
+                document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1533757704860-384affeed946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')"
+                break;
             case "Clouds":
-            document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1526925210199-6db37fd596af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')"    
-            break;
+                document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1526925210199-6db37fd596af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')"
+                break;
             case "Clear":
-            document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1468276311594-df7cb65d8df6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')"    
-            break;
+                document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1468276311594-df7cb65d8df6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')"
+                break;
             case "Foogy":
-            document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1533757704860-384affeed946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')"    
-            break;
-            case "Snow": 
-            document.body.style.backgroundImage = "url('/assets/snowbg.jpg')"
-            break;
-            case "Rain": 
-            document.body.style.backgroundImage = "url('/assets/rain.jpg')"
-            break;
-            case "Thunderstorm": 
-            document.body.style.backgroundImage = "url('/assets/thunder.jpg')"
-            break;
-            case "Drizzle": 
-            document.body.style.backgroundImage = "url('/assets/drizzle.jpg')"
-            break;
-            case "Mist": 
-            document.body.style.backgroundImage = "url('/assets/mist.jpg')"
-            break;
-            case "Thunderstorm": 
-            document.body.style.backgroundImage = "url('/assets/thunder.jpg')"
-            break;
-            default: 
-            break;
+                document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1533757704860-384affeed946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')"
+                break;
+            case "Snow":
+                document.body.style.backgroundImage = "url('/assets/snowbg.jpg')"
+                break;
+            case "Rain":
+                document.body.style.backgroundImage = "url('/assets/rain.jpg')"
+                break;
+            case "Thunderstorm":
+                document.body.style.backgroundImage = "url('/assets/thunder.jpg')"
+                break;
+            case "Drizzle":
+                document.body.style.backgroundImage = "url('/assets/drizzle.jpg')"
+                break;
+            case "Mist":
+                document.body.style.backgroundImage = "url('/assets/mist.jpg')"
+                break;
+            case "Thunderstorm":
+                document.body.style.backgroundImage = "url('/assets/thunder.jpg')"
+                break;
+            default:
+                break;
         }
     </script>
     <!-- Optional JavaScript -->

@@ -16,40 +16,52 @@
 
 <body>
     <!-- Main container -->
-    <div class="flex">
-        <div class="h-screen w-3/5">
-            <div class="mx-24 my-16 h-96 flex">
-                <img src="/assets/logo.png" class="h-7 w-7 mx-2" alt="logo" />
-                <p class="text-white font-medium text-x mx-2">Weather Today</p>
-            </div>
+    <div class="md:flex">
+        <div class="md:w-2/4 lg:w-3/5">
+            <div class="flex text-white mt-2 md:ml-4 md:mt-8 lg:font-medium lg:text-xl lg:mx-24 lg:my-16 lg:h-96"><img
+                    src="/assets/logo.png" class="h-5 ml-2 md:mx-2" alt="">Weather Today</div>
+            <form action="/" method="post" class="flex sm:hidden my-4">
+                <input name="city" type="text" class="bg-transparent text-white h-10 w-full px-2 text-xl focus:border-b-2 backdrop-blur-lg
+                    " placeholder="Enter a City" required>
+                <!-- <input type="submit" class="bg-orange-500 h-20 w-24 px-2 text-center text-white" value="Search"> -->
+                <button type="submit" class="bg-orange-500 h-10 w-12 " value="Get Weather"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-search m-auto"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </button>
+            </form>
             <%if( weather !==null){ %>
-                <div class="flex mx-24 my-auto">
-                    <div class="font-medium text-white text-8xl">
+                <div class="flex ml-2 my-5 md:ml-6 md:mt-72 lg:mx-24 lg:my-auto">
+                    <div class="text-white font-medium text-4xl my-auto lg:font-medium lg:text-8xl">
                         <%= temp %>°C
                     </div>
-                    <div class="mx-4 my-auto">
-                        <p class="font-medium text-white text-5xl text-left">
+                    <div class="text-white text-2xl mx-2 my-auto lg:font-medium lg:text-5xl lg:my-auto lg:mx-2">
+                        <p class="">
                             <%= place %>
                         </p>
-                        <!-- <p class="font-thin text-white text-left text-xs"><%= timezone %></p> -->
                     </div>
-                    <div class="mx-4 my-auto">
-                        <img src="<%= icon %>" alt="Weather-Icon" class="h-12 w-12 brightness-200 ">
-
-                        <p id="weather" class="text-white text-center text-xl font-medium ">
+                    <div class="flex flex-col lg:mx-4 lg:my-auto">
+                        <img src="https://openweathermap.org/img/wn/50n@2x.png" alt=""
+                            class="brightness-200 contrast-200 h-8 lg:h-12 lg:w-12">
+    
+                        <p id="weather" class="text-white text-xs text-center lg:text-center lg:text-xl">
                             <%= main %>
                         </p>
                     </div>
                 </div>
                 <% } %>
         </div>
-        <div class="w-2/5 backdrop-blur-md h-screen shadow-2xl">
-            <form action="/" method="post" class="flex">
+        <div
+            class="md:w-2/4 md:m-4 md:shadow-2xl md:rounded-lg md:backdrop-blur-md  md:h-screen md:overflow-auto lg:w-2/5 lg:h-screen lg:rounded-none lg:m-0">
+            <form action="/" method="post" class="hidden sm:flex md:flex">
                 <input name="city" type="text"
-                    class="bg-transparent text-white font-medium h-20 w-full px-10 pt-9 text-2xl focus:border-b-2"
+                    class="bg-transparent text-white h-10 w-full px-2 text-xl focus:border-b-2 lg:bg-transparent lg:text-white lg:font-medium lg:h-20 lg:w-full lg:px-10 lg:pt-9 lg:text-2xl"
                     placeholder="Enter a City" required>
-                <button type="submit" class="bg-orange-500 h-20 w-24" value="Get Weather"><svg
-                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white"
+                <!-- <input type="submit" class="bg-orange-500 h-20 w-24 px-2 text-center text-white" value="Search"> -->
+                <button type="submit" class="bg-orange-500 hover:bg-orange-600 h-10 w-12 lg:h-20 lg:w-24 "
+                    value="Get Weather"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white"
                         class="bi bi-search m-auto" viewBox="0 0 16 16">
                         <path
                             d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -57,80 +69,81 @@
                 </button>
             </form>
             <%if( weather !==null){ %>
-                <div class="my-16">
-                    <div class="mx-16 my-2">
-                        <p class="text-white font-medium text-xl">
+                <div class="my-5 lg:my-12">
+                    <hr class="mx-2 my-4 md:hidden lg:mx-16">
+                    <div class="ml-4 lg:mx-16 lg:my-2">
+                        <p class="text-white font-medium lg:font-medium lg:text-xl">
                             Temperature :
                         </p>
-                        <p class="text-white font-base text-lg">
+                        <p class="text-white text-xs lg:font-base lg:text-lg">
                             <%= temp %>°C / <%= fahrenheit %>°F
                         </p>
                     </div>
-                    <hr class="mx-16">
-                    <div class="mx-16 my-2">
-                        <p class="text-white font-medium text-xl">
+                    <hr class="mx-2 my-2 lg:mx-16">
+                    <div class="ml-4 lg:mx-16 lg:my-2">
+                        <p class="text-white font-medium lg:font-medium lg:text-xl">
                             Main :
                         </p>
-                        <p class="text-white font-base text-lg">
+                        <p class="text-white text-xs lg:font-base lg:text-lg">
                             <%= main %>
                         </p>
                     </div>
-                    <hr class="mx-16">
-                    <div class="mx-16 my-2">
-                        <p class="text-white font-medium text-xl">
+                    <hr class="mx-2 my-2 lg:mx-16">
+                    <div class="ml-4 lg:mx-16 lg:my-2">
+                        <p class="text-white font-medium lg:font-medium lg:text-xl">
                             Overall Description :
-
                         </p>
-                        <p class="text-white font-base text-lg">
+                        <p class="text-white text-xs lg:font-base lg:text-lg">
                             <%= description %>
                         </p>
                     </div>
-                    <hr class="mx-16">
-                    <div class="mx-16 my-2">
-                        <p class="text-white font-medium text-xl">
+                    <hr class="mx-2 my-2 lg:mx-16">
+                    <div class="ml-4 lg:mx-16 lg:my-2">
+                        <p class="text-white font-medium lg:font-medium lg:text-xl">
                             Cloud coverage :
                         </p>
-                        <p class="text-white font-base text-lg">
+                        <p class="text-white text-xs lg:font-base lg:text-lg">
                             <%= clouds %>
                         </p>
                     </div>
-                    <hr class="mx-16">
-                    <div class="mx-16 my-2">
-                        <p class="text-white font-medium text-xl">
+                    <hr class="mx-2 my-2 lg:mx-16">
+                    <div class="ml-4 lg:mx-16 lg:my-2">
+                        <p class="text-white font-medium lg:font-medium lg:text-xl">
                             Visibility :
                         </p>
-                        <p class="text-white font-base text-lg">
+                        <p class="text-white text-xs lg:font-base lg:text-lg">
                             <%= visibility %> meters
                         </p>
                     </div>
-                    <hr class="mx-16">
-                    <div class="mx-16 my-2">
-                        <p class="text-white font-medium text-xl">
+                    <hr class="mx-2 my-2 lg:mx-16">
+                    <div class="ml-4 lg:mx-16 lg:my-2">
+                        <p class="text-white font-medium lg:font-medium lg:text-xl">
                             Humidity :
                         </p>
-                        <p class="text-white font-base text-lg">
+                        <p class="text-white text-xs lg:font-base lg:text-lg">
                             <%= humidity %> g.m-3
                         </p>
                     </div>
-                    <hr class="mx-16">
-                    <div class="mx-16 my-2">
-                        <p class="text-white font-medium text-xl">
+                    <hr class="mx-2 my-2 lg:mx-16">
+                    <div class="ml-4 lg:mx-16 lg:my-2">
+                        <p class="text-white font-medium lg:font-medium lg:text-xl">
                             Pressure :
                         </p>
-                        <p class="text-white font-base text-lg">
+                        <p class="text-white text-xs lg:font-base lg:text-lg">
                             <%= pressure %> N·m−2
                         </p>
                     </div>
+                    
+                    <hr class="mx-2 my-2 md:hidden">
                 </div>
                 <% } %>
-                    <% if(error !==null){ %>
-                        <p class="text-white font-base text-xs mx-16 my-2">
-                            <%= error %>
+                <% if(error !==null){ %>
+                    <p class="text-xs font-base text-white text-center my-5">
+                        <%= error %>
+                    </p>
+                    <% } %>
+                        <p class="text-xs font-thin text-white text-center my-5 opacity-50 ">Copyright © 2022 | rohit-64bit
                         </p>
-                        <% } %>
-                            <div class="mx-16 text-white text-xs font-light ">
-                                This is only conpatible with desktop for now.
-                            </div>
         </div>
     </div>
 
@@ -175,6 +188,7 @@
                 document.body.style.backgroundImage = "url('/assets/thunder.jpg')"
                 break;
             default:
+                
                 break;
         }
     </script>

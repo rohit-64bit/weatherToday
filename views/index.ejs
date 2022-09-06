@@ -19,11 +19,10 @@
     <div class="md:flex">
         <div class="md:w-2/4 lg:w-3/5">
             <div class="flex text-white mt-2 md:ml-4 md:mt-8 lg:font-medium lg:text-xl lg:mx-24 lg:my-16 lg:h-96"><img
-                    src="/assets/logo.png" class="h-5 ml-2 md:mx-2" alt="">Weather Today</div>
+                    src="/assets/logo.png" class="h-5 mx-2 mt-1 md:mx-2" alt="">Weather Today</div>
             <form action="/" method="post" class="flex sm:hidden my-4">
-                <input name="city" type="text" class="bg-transparent text-white h-10 w-full px-2 text-xl focus:border-b-2 backdrop-blur-lg
-                    " placeholder="Enter a City" required>
-                <!-- <input type="submit" class="bg-orange-500 h-20 w-24 px-2 text-center text-white" value="Search"> -->
+                <input name="city" type="text" class="bg-transparent text-white h-10 w-full px-2 text-xl focus:border-b-2 backdrop-blur-sm backdrop-brightness-75 shadow-2xl" placeholder="Enter a City" required>
+                
                 <button type="submit" class="bg-orange-500 h-10 w-12 " value="Get Weather"><svg
                         xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-search m-auto"
                         viewBox="0 0 16 16">
@@ -33,7 +32,7 @@
                 </button>
             </form>
             <%if( weather !==null){ %>
-                <div class="flex ml-2 my-5 md:ml-6 md:mt-72 lg:mx-24 lg:my-auto">
+                <div class="flex mx-2 my-5 md:ml-6 md:mt-72 lg:mx-24 lg:my-auto">
                     <div class="text-white font-medium text-4xl my-auto lg:font-medium lg:text-8xl">
                         <%= temp %>°C
                     </div>
@@ -43,8 +42,8 @@
                         </p>
                     </div>
                     <div class="flex flex-col lg:mx-4 lg:my-auto">
-                        <img src="https://openweathermap.org/img/wn/50n@2x.png" alt=""
-                            class="brightness-200 contrast-200 h-8 lg:h-12 lg:w-12">
+                        <img src="<%= icon %>" alt=""
+                            class="h-8 brightness-200 lg:h-12 lg:w-12">
     
                         <p id="weather" class="text-white text-xs text-center lg:text-center lg:text-xl">
                             <%= main %>
@@ -54,10 +53,10 @@
                 <% } %>
         </div>
         <div
-            class="md:w-2/4 md:m-4 md:shadow-2xl md:rounded-lg md:backdrop-blur-md  md:h-screen md:overflow-auto lg:w-2/5 lg:h-screen lg:rounded-none lg:m-0">
+            class="md:w-2/4 md:m-4 md:shadow-xl md:rounded-lg md:backdrop-blur-md  md:h-screen md:overflow-auto lg:w-2/5 lg:h-screen lg:rounded-none lg:m-0">
             <form action="/" method="post" class="hidden sm:flex md:flex">
                 <input name="city" type="text"
-                    class="bg-transparent text-white h-10 w-full px-2 text-xl focus:border-b-2 lg:bg-transparent lg:text-white lg:font-medium lg:h-20 lg:w-full lg:px-10 lg:pt-9 lg:text-2xl"
+                    class="bg-transparent text-white h-10 w-full px-2 text-xl focus:border-b-2  lg:bg-transparent lg:text-white lg:font-medium lg:h-20 lg:w-full lg:px-10 lg:pt-9 lg:text-2xl"
                     placeholder="Enter a City" required>
                 <!-- <input type="submit" class="bg-orange-500 h-20 w-24 px-2 text-center text-white" value="Search"> -->
                 <button type="submit" class="bg-orange-500 hover:bg-orange-600 h-10 w-12 lg:h-20 lg:w-24 "
@@ -69,8 +68,8 @@
                 </button>
             </form>
             <%if( weather !==null){ %>
-                <div class="my-5 lg:my-12">
-                    <hr class="mx-2 my-4 md:hidden lg:mx-16">
+                <div class="my-5 backdrop-blur-md rounded-md m-4 shadow-2xl px-2 py-4 lg:my-12 sm:backdrop-blur-none sm:p-0 sm:shadow-none ">
+                    
                     <div class="ml-4 lg:mx-16 lg:my-2">
                         <p class="text-white font-medium lg:font-medium lg:text-xl">
                             Temperature :
@@ -134,7 +133,7 @@
                         </p>
                     </div>
                     
-                    <hr class="mx-2 my-2 md:hidden">
+                    
                 </div>
                 <% } %>
                 <% if(error !==null){ %>

@@ -25,6 +25,8 @@ app.post('/', function(req, res) {
 
     let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
+    let fiveForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&exclude=hourly,minutely&appid=${apiKey}`;
+    
     // Request for data using the URL
     request(url, function(err, response, body) {
 
@@ -44,8 +46,12 @@ app.post('/', function(req, res) {
                 let place = `${weather.name}, ${weather.sys.country}`,
                     /* We shall calculate the current timezone using the data fetched*/
                     weatherTimezone = `${new Date(weather.dt * 1000 - (weather.timezone * 1000))}`;
+                let longitude = `${weather.coord.lon}`;
+                let latitude = `${weather.coord.lat}`;
+                
                 let weatherTemp = `${weather.main.temp}`,
                     weatherPressure = `${weather.main.pressure}`,
+
                     /* We shall fetch the weather icon and its size using the icon data*/
                     weatherIcon = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`,
                     weatherDescription = `${weather.weather[0].description}`,
@@ -63,12 +69,21 @@ app.post('/', function(req, res) {
                 weatherFahrenheit = roundToTwo(weatherFahrenheit);
 
                 // We shall now render the data to our page (index.ejs) before displaying it out
-                res.render('index', { weather: weather, place: place, temp: weatherTemp, pressure: weatherPressure, icon: weatherIcon, description: weatherDescription, timezone: weatherTimezone, humidity: humidity, fahrenheit: weatherFahrenheit, clouds: clouds, visibility: visibility, main: main, error: null });
+                res.render('index', { weather: weather, place: place, temp: weatherTemp, pressure: weatherPressure, icon: weatherIcon, description: weatherDescription, timezone: weatherTimezone, humidity: humidity, fahrenheit: weatherFahrenheit, clouds: clouds, visibility: visibility, main: main,lon:longitude,lat:latitude, error: null });
             }
         }
     });
+    request(fiveForecast,function(err,response,body){
+        if (err) {
+            res.render('index', { weather: null, error: 'Error, please try again' });
+        } else {
+            let forecast = JSON.parse(body);
+            console.log(forecast);
+    }});
 });
 
+    //request the forecast data
+    
 // We shall set up our port configurations
 app.listen(5000, function() {
     console.log('Weather app listening on port 5000!');

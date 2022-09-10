@@ -21,11 +21,13 @@
             <div class="flex text-white mt-2 md:ml-4 md:mt-8 lg:font-medium lg:text-xl lg:mx-24 lg:my-16 lg:h-96"><img
                     src="/assets/logo.png" class="h-5 mx-2 mt-1 md:mx-2" alt="">Weather Today</div>
             <form action="/" method="post" class="flex sm:hidden my-4">
-                <input name="city" type="text" class="bg-transparent text-white h-10 w-full px-2 text-xl focus:border-b-2 backdrop-blur-sm backdrop-brightness-75 shadow-2xl" placeholder="Enter a City" required>
-                
+                <input name="city" type="text"
+                    class="bg-transparent text-white h-10 w-full px-2 text-xl focus:border-b-2 backdrop-blur-sm backdrop-brightness-75 shadow-2xl"
+                    placeholder="Enter a City" required>
+
                 <button type="submit" class="bg-orange-500 h-10 w-12 " value="Get Weather"><svg
-                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-search m-auto"
-                        viewBox="0 0 16 16">
+                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white"
+                        class="bi bi-search m-auto" viewBox="0 0 16 16">
                         <path
                             d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                     </svg>
@@ -42,9 +44,8 @@
                         </p>
                     </div>
                     <div class="flex flex-col lg:mx-4 lg:my-auto">
-                        <img src="<%= icon %>" alt=""
-                            class="h-8 brightness-200 lg:h-12 lg:w-12">
-    
+                        <img src="<%= icon %>" alt="" class="h-8 brightness-200 lg:h-12 lg:w-12">
+
                         <p id="weather" class="text-white text-xs text-center lg:text-center lg:text-xl">
                             <%= main %>
                         </p>
@@ -68,8 +69,9 @@
                 </button>
             </form>
             <%if( weather !==null){ %>
-                <div class="my-5 backdrop-blur-md rounded-md m-4 shadow-2xl px-2 py-4 lg:my-12 sm:backdrop-blur-none sm:p-0 sm:shadow-none ">
-                    
+                <div
+                    class="my-5 backdrop-blur-md rounded-md m-4 shadow-2xl px-2 py-4 lg:my-5 sm:backdrop-blur-none sm:p-0 sm:shadow-none ">
+
                     <div class="ml-4 lg:mx-16 lg:my-2">
                         <p class="text-white font-medium lg:font-medium lg:text-xl">
                             Temperature :
@@ -132,17 +134,27 @@
                             <%= pressure %> N·m−2
                         </p>
                     </div>
-                    
-                    
+                    <hr class="mx-2 my-2 lg:mx-16">
+                    <div class="ml-4 lg:mx-16 lg:my-2">
+                        <p class="text-white font-medium lg:font-medium lg:text-xl">
+                            Longitude / Latitude :
+                        </p>
+                        <p class="text-white text-xs lg:font-base lg:text-lg">
+                            <%= lon %> / <%= lat %>
+                        </p>
+                    </div>
+
+
                 </div>
                 <% } %>
-                <% if(error !==null){ %>
-                    <p class="text-xs font-base text-white text-center my-5">
-                        <%= error %>
-                    </p>
-                    <% } %>
-                        <p class="text-xs font-thin text-white text-center my-5 opacity-50 ">Copyright © 2022 | rohit-64bit
+                    <% if(error !==null){ %>
+                        <p class="text-xs font-base text-white text-center my-5">
+                            <%= error %>
                         </p>
+                        <% } %>
+                            <p class="text-xs font-thin text-white text-center my-5 opacity-50 ">Copyright © 2022 |
+                                rohit-64bit
+                            </p>
         </div>
     </div>
 
@@ -187,7 +199,7 @@
                 document.body.style.backgroundImage = "url('/assets/thunder.jpg')"
                 break;
             default:
-                
+
                 break;
         }
     </script>
